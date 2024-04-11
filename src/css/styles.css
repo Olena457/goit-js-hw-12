@@ -63,12 +63,13 @@ body {
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.64px;
-  transition: background-color 300ms linear, color 300ms linear;
+  transition: background-color 300ms ease-in-out, transform 300ms ease-in-out;
 }
 .button-search:hover,
 .button-search:focus {
   background: #6c8cff;
   color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .loader {
@@ -148,6 +149,7 @@ body {
 }
 
 .caption {
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -165,6 +167,7 @@ body {
   font-size: 16px;
   justify-content: center;
   align-items: center;
+  color: #fff;
   gap: 10px;
   width: 125px;
   height: 40px;
@@ -176,11 +179,11 @@ body {
   border: 1px solid transparent;
   background: #4e75ff;
   cursor: pointer;
-  transition: background-color 300ms linear, color 300ms linear;
+  transition: background-color 300ms ease-in-out, transform 300ms ease-in-out;
 }
 .load-more:hover,
 .load-more:focus {
   background: #6c8cff;
   color: #fff;
-  /* box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5); */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
