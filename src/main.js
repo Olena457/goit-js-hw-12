@@ -93,7 +93,7 @@ async function onClickMoreBtn() {
     addImagesToGallery(resp.hits);
     currentHits += resp.hits.length;
 
-    if (currentHits > totalHits) {
+    if (currentHits >= totalHits) {
       loadMoreBtn.classList.add('hidden');
       iziToast.info({
         title: 'Info',
