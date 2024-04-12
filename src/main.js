@@ -81,6 +81,9 @@ async function handleSearchSubmit(ev) {
         color: '#21d4bce0',
         timeout: 2000,
       });
+      galleryEl.innerHTML = renderImages(resp.hits);
+      lightbox.refresh();
+      scrollToNewImages();
     } else {
       galleryEl.innerHTML = renderImages(resp.hits);
       loadMoreBtn.classList.toggle('hidden', totalHits <= currentHits);
