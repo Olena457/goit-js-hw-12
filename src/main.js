@@ -72,10 +72,21 @@ async function handleSearchSubmit(ev) {
       });
       return;
     }
-    galleryEl.innerHTML = renderImages(resp.hits);
-    loadMoreBtn.classList.toggle('hidden', totalHits <= currentHits);
-    lightbox.refresh();
-    scrollToNewImages();
+
+    if (currentHits < 15) {
+      iziToast.info({
+        title: 'Info',
+        message: `We're sorry, but you've reached the end of search results.`,
+        position: 'topRight',
+        color: '#21d4bce0',
+        timeout: 2000,
+      });
+    } else {
+      galleryEl.innerHTML = renderImages(resp.hits);
+      loadMoreBtn.classList.toggle('hidden', totalHits <= currentHits);
+      lightbox.refresh();
+      scrollToNewImages();
+    }
   } catch (error) {
     iziToast.error({
       title: 'Error',
