@@ -41,6 +41,9 @@ async function handleSearchSubmit(ev) {
   setBackgroundGradient();
   query = ev.target.elements.query.value.trim();
   currentPage = 1;
+  loadMoreBtn.classList.add('hidden');
+  galleryEl.innerHTML = '';
+  searchForm.reset();
 
   if (!query) {
     iziToast.show({
@@ -70,7 +73,7 @@ async function handleSearchSubmit(ev) {
       return;
     }
     galleryEl.innerHTML = renderImages(resp.hits);
-    loadMoreBtn.classList.toggle('hidden', totalHits <= 15);
+    loadMoreBtn.classList.toggle('hidden', totalHits <= currentHits);
     lightbox.refresh();
     scrollToNewImages();
   } catch (error) {
@@ -102,7 +105,6 @@ async function onClickMoreBtn() {
         color: '#21d4bce0',
         timeout: 2000,
       });
-      searchForm.reset();
     }
   } catch (error) {
     iziToast.error({
